@@ -1,9 +1,14 @@
+# MatriX.Quant
+* Все пользователи разделены, у каждого своя база
+* Пользователи не могут менять настройки BitTorr
+* Отключен shutdown, dlna
+
 # Установка на linux
 ```bash
 curl -s https://raw.githubusercontent.com/immisterio/MatriX.Quant/master/install.sh | bash
 ```
 
-# /opt/matrix/accs.db
+# accs.db
 ```json
 {
   "user1": "pass1",
@@ -11,7 +16,7 @@ curl -s https://raw.githubusercontent.com/immisterio/MatriX.Quant/master/install
 }
 ```
 
-# /opt/matrix/settings.json
+# settings.json
 ```json
 {
   "BitTorr": {
@@ -43,8 +48,3 @@ curl -s https://raw.githubusercontent.com/immisterio/MatriX.Quant/master/install
   }
 }
 ```
-
-# Чем отличается MatriX.Quant от MatriX
-* Все пользователи разделены, у каждого своя база
-* Пользователи не могут менять настройки BitTorr
-* Отключен shutdown, dlna
