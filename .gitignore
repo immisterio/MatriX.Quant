@@ -1,0 +1,39 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Mac suff
+.DS_Store
+
+# Test binary, build with `go test -c`
+*.test
+
+# Mac stuff
+.DS_Store
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+TorrServer.iml
+.idea/
+.vscode
+
+src/github.com/
+src/golang.org/
+src/bazil.org/
+src/gopkg.in/
+src/go.opencensus.io/
+pkg/
+bin/
+dist/
+toolchains/
+/src/crawshaw.io/
+/src/go.etcd.io/
+/src/google.golang.org/
+/toolchain/
+/server/web/pages/template/pages/msx
+
+/.vs
