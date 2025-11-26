@@ -4,7 +4,46 @@ DEST="/opt/matrix"
 mkdir $DEST -p 
 cd $DEST
 wget https://github.com/immisterio/MatriX.Quant/releases/latest/download/TorrServer-linux-amd64
-chmod +x -o TorrServer-linux-amd64
+chmod +x TorrServer-linux-amd64
+
+cat <<EOF > $DEST/settings.json
+{
+  "BitTorr": {
+    "CacheSize": 96468992,
+    "ConnectionsLimit": 30,
+    "DisableDHT": false,
+    "DisablePEX": false,
+    "DisableTCP": false,
+    "DisableUPNP": false,
+    "DisableUTP": false,
+    "DisableUpload": false,
+    "DownloadRateLimit": 0,
+    "EnableDebug": false,
+    "EnableIPv6": false,
+    "ForceEncrypt": false,
+    "PeersListenPort": 0,
+    "PreloadCache": 14,
+    "ReaderReadAHead": 86,
+    "RemoveCacheOnDrop": false,
+    "ResponsiveMode": false,
+    "RetrackersMode": 1,
+    "SslCert": "",
+    "SslKey": "",
+    "SslPort": 0,
+    "TorrentDisconnectTimeout": 120,
+    "TorrentsSavePath": "",
+    "UploadRateLimit": 0,
+    "UseDisk": false
+  }
+}
+EOF
+
+cat <<EOF > $DEST/accs.db
+{
+  "user1": "pass1",
+  "user2": "pass2"
+}
+EOF
 
 echo ""
 echo "Install service to /etc/systemd/system/matrix.service ..."
@@ -16,7 +55,7 @@ Wants=network.target
 After=network.target
 [Service]
 WorkingDirectory=$DEST
-ExecStart=TorrServer-linux-amd64 -a
+ExecStart=$DEST/TorrServer-linux-amd64 -a
 #ExecReload=/bin/kill -s HUP $MAINPID
 #ExecStop=/bin/kill -s QUIT $MAINPID
 Restart=always
