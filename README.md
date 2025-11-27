@@ -1,7 +1,7 @@
 # MatriX.Quant
 * Все пользователи разделены, у каждого свой BitTorr и своя база
 * Пользователи не могут менять настройки BitTorr
-* Отключен shutdown, dlna, ffprobe, docs, tgbot
+* Отключен shutdown, dlna, docs, tgbot
 
 # Установка на linux
 ```bash

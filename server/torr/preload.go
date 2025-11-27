@@ -6,6 +6,9 @@ import (
 	"sync"
 	"time"
 
+	"server/ffprobe"
+	"strconv"
+
 	"github.com/anacrolix/torrent"
 
 	"server/log"
@@ -69,6 +72,17 @@ func (t *Torrent) Preload(index int, size int64) {
 				time.Sleep(time.Second)
 			}
 		}()
+
+		if ffprobe.Exists() {
+			link := "http://127.0.0.1:" + settings.Port + "/play/" + t.Hash().HexString() + "/" + strconv.Itoa(index)
+			if settings.Ssl {
+				link = "https://127.0.0.1:" + settings.SslPort + "/play/" + t.Hash().HexString() + "/" + strconv.Itoa(index)
+			}
+			if data, err := ffprobe.ProbeUrl(link); err == nil {
+				t.BitRate = data.Format.BitRate
+				t.DurationSeconds = data.Format.DurationSeconds
+			}
+		}
 
 		if t.Stat == state.TorrentClosed {
 			log.TLogln("End preload: torrent closed")

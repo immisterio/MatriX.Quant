@@ -10,6 +10,7 @@ replace (
 )
 
 require (
+        gopkg.in/vansante/go-ffprobe.v2 v2.2.1
         github.com/alexflint/go-arg v1.5.0
         github.com/anacrolix/log v0.16.0
         github.com/anacrolix/missinggo/v2 v2.8.0
@@ -41,6 +42,7 @@ require (
         github.com/anacrolix/chansync v0.6.0 // indirect
         github.com/anacrolix/dht/v2 v2.22.1 // indirect
         github.com/anacrolix/envpprof v1.4.0 // indirect
+        github.com/anacrolix/ffprobe v1.1.0 // indirect
         github.com/anacrolix/generics v0.0.3 // indirect
         github.com/anacrolix/missinggo v1.3.0 // indirect
         github.com/anacrolix/missinggo/perf v1.0.0 // indirect
