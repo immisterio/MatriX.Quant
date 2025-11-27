@@ -27,7 +27,8 @@ export const checkImageURL = async url => {
 }
 
 const magnetRegex = /^magnet:\?xt=urn:[a-z0-9].*/i
-export const hashRegex = /^\b[0-9a-f]{32}\b$|^\b[0-9a-f]{40}\b$|^\b[0-9a-f]{64}\b$/i
+// hash can optionally contain a suffix (e.g. hash:user) coming from some forked APIs
+export const hashRegex = /^(?:[0-9a-f]{32}|[0-9a-f]{40}|[0-9a-f]{64})(?::.+)?$/i
 const torrentRegex = /^.*\.(torrent)$/i
 const linkRegex = /^(http(s?)):\/\/.*/i
 
