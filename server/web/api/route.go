@@ -1,6 +1,7 @@
 package api
 
 import (
+	config "server/settings"
 	"server/web/auth"
 
 	"github.com/gin-gonic/gin"
@@ -38,4 +39,10 @@ func SetupRoute(route gin.IRouter) {
 	route.GET("/playlist/*fname", playList)
 
 	authorized.GET("/download/:size", download)
+
+	if config.SearchWA {
+		route.GET("/search/*query", rutorSearch)
+	} else {
+		authorized.GET("/search/*query", rutorSearch)
+	}
 }

@@ -27,6 +27,9 @@ type BTSets struct {
 	TorrentDisconnectTimeout int  // in seconds
 	EnableDebug              bool // debug logs
 
+	// Rutor
+	EnableRutorSearch bool
+
 	// BT Config
 	EnableIPv6        bool
 	DisableTCP        bool

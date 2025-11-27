@@ -5,6 +5,8 @@ import (
 	"os"
 	"sort"
 
+	"server/rutor"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/location"
 	"github.com/gin-gonic/gin"
@@ -49,6 +51,8 @@ func Start() {
 		log.TLogln("BT connect error!", err) // waitChan <- err
 		os.Exit(1)                           // return
 	}
+
+	rutor.Start()
 
 	gin.SetMode(gin.ReleaseMode)
 

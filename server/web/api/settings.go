@@ -2,7 +2,6 @@ package api
 
 import (
 "net/http"
-
 "github.com/gin-gonic/gin"
 "github.com/pkg/errors"
 
